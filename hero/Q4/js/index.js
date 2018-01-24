@@ -94,7 +94,7 @@ var healeffect=setInterval (function() {
         clearInterval(healeffect);
         document.getElementsByClassName("effect-image")[0].style.display = "none";
         }
-    },40);
+    },100);
 
 
 
