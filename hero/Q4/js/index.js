@@ -39,7 +39,7 @@ attack(character, damage) {
             _this.element.getElementsByClassName("hurt-text")[0].textContent = "";
             clearInterval(_this.id);
           }
-        }, 50);
+        }, 80);
      }
 
   die() {
@@ -87,22 +87,19 @@ else if(this.maxHpElement.innerHTML-this.hpElement.innerHTML<30)
 setTimeout(function() {
 var i = 1;
 var healeffect=setInterval (function() {
-      document.getElementsByClassName("effect-image")[0].style.display = "block";
-        document.getElementsByClassName("effect-image")[0].src = 'images/effect1/blade/' + i + '.png';
-        i++;
-        if(i==8){
-        clearInterval(healeffect);
-        document.getElementsByClassName("effect-image")[0].style.display = "none";
-        }
-    },100);
+  document.getElementsByClassName("effect-image")[0].style.display = "block";
+  document.getElementsByClassName("effect-image")[0].src = 'images/effect1/blade/' + i + '.png';
+  i++;
+    if(i==8){
+      clearInterval(healeffect);
+      document.getElementsByClassName("effect-image")[0].style.display = "none";
+            }
+},80);
 
-
-
-
-      document.getElementsByClassName("hurt-text")[0].classList.add("attacked");
-  if(hero.maxHpElement.innerHTML-hero.hpElement.innerHTML >= 30){
-      document.getElementsByClassName("hurt-text")[0].textContent = 30;
-  }
+document.getElementsByClassName("hurt-text")[0].classList.add("attacked");
+if(hero.maxHpElement.innerHTML-hero.hpElement.innerHTML >= 30){
+  document.getElementsByClassName("hurt-text")[0].textContent = 30;
+}
 else{
   document.getElementsByClassName("hurt-text")[0].textContent = hero.maxHpElement.innerHTML-hero.hpElement.innerHTML;
 }
@@ -149,7 +146,9 @@ function endTurn() {
   rounds--;
   document.getElementById("round-num").textContent = rounds;
   document.getElementsByClassName("skill-block")[0].style.display = "block";
+    setTimeout(function() {
   action=false;
+}, 500);
   if (rounds < 1) {
  finish();
   }
@@ -205,9 +204,9 @@ function heal() {
   var child = container.lastChild;
   setTimeout(function() {
   container.removeChild(child);
-      document.getElementsByClassName("skill-block")[0].style.display = "block";
+  document.getElementsByClassName("skill-block")[0].style.display = "block";
       action=false;
-}, 1000);
+}, 1200);
 
   }
   else{
